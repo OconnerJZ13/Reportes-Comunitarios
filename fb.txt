@@ -1,0 +1,32 @@
+FB.api(
+  '/me',
+  'GET',
+  {"fields":"id,email,name,first_name,last_name,picture{url,width}"},
+  function(response) {
+        usrNombre = response.first_name;
+        usrApellidos = response.last_name;
+        usrCorreo = response.email;
+        usrID = response.id;
+        foto = 'http://graph.facebook.com/'+response.id+'/picture?type=large';
+        fb='FB';
+       document.getElementById('status').innerHTML= usrNombre+" | "+usrCorreo;
+       document.getElementById('foto').src= 'http://graph.facebook.com/'+response.id+'/picture?type=large';
+       alert("Aqui esta: "+fb);
+       /* $.ajax({
+          type: 'POST',
+            url: 'php/login.php',
+            data: {'fb' : fb, 'usrNombre' : usrNombre, 'usrApellidos' : usrApellidos, 'usrCorreo' : usrCorreo, 'usrFoto' : foto, 'usrPwd' : usrID},
+            success: function(data){
+          
+        //window.location= '#Login';
+        //setTimeout(showTooltip,100)
+          },
+          error: function(data){
+        
+          }
+        });*/
+
+}
+
+
+ );
